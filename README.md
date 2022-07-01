@@ -5,6 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 React-based Clothing Store application.
 Utilizing React Hooks, Sass and Higher Order Component Design Structuring
 
+## Tech Scope
+  - Reactjs
+  - React-Router.v6
+
 <!-- ## Available Scripts
 
 In the project directory, you can run:
