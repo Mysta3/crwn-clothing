@@ -3,15 +3,8 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import Authentication from './routes/authentication/authentication.component.jsx';
 import './categories.styles.scss';
+import Shop from './routes/shop/shop.component';
 
-
-const Shop = () => {
-  return(
-    <div>
-      <h1>I AM SHOP PAGE</h1>
-    </div>
-  )
-}
 
 const App = () => {
 
