@@ -8,7 +8,15 @@ import { getAuth,
         signOut,
         onAuthStateChanged 
         } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import { getFirestore,
+         doc,
+         getDoc,
+         setDoc,
+         collection,
+         writeBatch,
+         query,
+         getDocs,
+        } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBrbTpKbfzaW-TpB32HE19EfL8NxSZFK48",
@@ -22,6 +30,11 @@ const firebaseConfig = {
 // Initialize Firebase
 // eslint-disable-next-line no-unused-vars
 const firebaseApp = initializeApp(firebaseConfig);
+
+///////////////////////////////////////
+  // FireBase Google Auth //
+//////////////////////////////////////
+
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
@@ -34,9 +47,43 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googlePro
 
 // FIRESTORE //
 
+///////////////////////////////////////
+  // FireStore DB  //
+//////////////////////////////////////
+
 // get db instance
 export const db = getFirestore();
-// userDocument creation
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey); // get collectionReference
+  const batch = writeBatch(db); // get your batch instance
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase()); // get doc reference & pass in to point to the correct collection
+    batch.set(docRef, object);
+  });
+
+  await batch.commit(); // begins firing off batch
+  console.log('done!!');
+};
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+  const qry = query(collectionRef); // returns an object that you can get a snapshot from
+
+  const querySnapshot = await getDocs(qry);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+}
+///////////////////////////////////////
+  // userDocument creation //
+//////////////////////////////////////
+
+
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
   if (!userAuth) return;
 
@@ -61,6 +108,11 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   }
   return userDocRef;
 };
+
+
+///////////////////////////////////////
+  // USER AUTH FIREBASE //
+//////////////////////////////////////
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
