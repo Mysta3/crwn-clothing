@@ -17,9 +17,7 @@ const Button = ({ children, buttonType, ...otherProps }) => {
   const CustomButton = getButton(buttonType);
 
   return (
-          <CustomButton 
-          {...otherProps}
-          >
+          <CustomButton {...otherProps}>
             {children}
           </CustomButton>);
 };

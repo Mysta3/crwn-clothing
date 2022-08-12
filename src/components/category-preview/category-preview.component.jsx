@@ -12,12 +12,12 @@ const CategoryPreview = ({ title, products }) => {
         <Title to={title}>{title.toUpperCase()}</Title>
       </h2>
       <Preview>
-      {
-        products.filter((_, index ) => index < 4 )
-                .map((product) => (
-                  <ProductCard key={product.id} product={product}/>
-                ))
-      }
+        {
+          products.filter((_, index ) => index < 4 )
+                  .map((product) => (
+                    <ProductCard key={product.id} product={product}/>
+                  ))
+        }
       </Preview>
     </CategoryPreviewContainer>
   )
