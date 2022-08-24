@@ -37,7 +37,6 @@ const SignInForm = () => {
 
     try {
       await signInAuthEmailandPassword(email, password);
-      
       resetFormFields();
     } catch (error) {
       switch(error.code) {
@@ -70,7 +69,7 @@ const SignInForm = () => {
           <FormInput label='Password' type='password' required onChange={handleChange} name='password' value={password} />
 
           <div className='buttons-container'>
-            <Button type='submit'>Sign In</Button>
+            <Button type='submit'></Button>
             <Button type='button' buttonType={ BUTTON_TYPE_CLASSES.google } onClick={signInWithGoogle}>Google Sign In</Button>
           </div>
         </form>
