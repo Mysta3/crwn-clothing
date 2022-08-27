@@ -13,12 +13,17 @@ export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: 'SET_CURRENT_USER'
 }
 
+// REDUCER INITIAL STATE
+const INITIAL_STATE = {
+  currentUser: null
+}
+
 // USER REDUCER FUNCTION
 const userReducer = (state, action) => {
   const { type, payload } = action;
 
   switch(type){
-    case 'SET_CURRENT_USER':
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
       return {
         ...state,
         currentUser: payload
@@ -26,11 +31,6 @@ const userReducer = (state, action) => {
     default:
       throw new Error(`Unhandled type ${type} in userReducer`);
   }
-}
-
-// REDUCER INITIAL STATE
-const INITIAL_STATE = {
-  currentUser: null
 }
 
 // functional component
