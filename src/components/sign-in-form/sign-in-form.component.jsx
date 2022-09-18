@@ -48,7 +48,6 @@ const SignInForm = () => {
           break;
         default:
           alert('Unsuccessful');
-          console.log(error);
       }
     }
   };
