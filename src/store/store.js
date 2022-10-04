@@ -20,6 +20,7 @@ const loggerMiddleware = (store) => (next) => (action) => {
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['cart'],
   blacklist: ['user']
 };
 
