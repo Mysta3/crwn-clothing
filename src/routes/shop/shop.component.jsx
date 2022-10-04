@@ -12,6 +12,7 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(fetchCategoriesAsync());
+    // eslint-disable-next-line
   }, []);
 
   return (

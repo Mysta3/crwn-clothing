@@ -25,6 +25,7 @@ const App = () => {
       dispatch(setCurrentUser(user));
     });
     return unsubscribe;
+    // eslint-disable-next-line
   }, []);
   
   return (
