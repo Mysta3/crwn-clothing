@@ -126,7 +126,7 @@ export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth,
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = onAuthStateChanged(
+    const unsubscribe = onAuthStateChanged( //observer pattern
       auth,
       (userAuth) => {
         unsubscribe();
