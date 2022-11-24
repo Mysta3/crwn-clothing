@@ -1,4 +1,6 @@
 # CRWN Clothing
+![image](https://user-images.githubusercontent.com/44353909/203862509-f076b406-d767-4e49-bad4-d397c17ec9bc.png)
+
 
 ### Description
 
