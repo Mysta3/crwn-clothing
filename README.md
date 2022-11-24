@@ -3,7 +3,7 @@
 ### Description
 
 React-based Clothing Store application.
-Utilizing React Hooks, Sass and Higher Order Component Design Structuring
+Utilizing React Hooks, Redux, Sass and Higher Order Component Design Structuring and various other technologies to create a scalable eCommerce solution
 
 ### Purpose
 To gain a deeper understanding of the React environment when applied to a more scalable complex app. 
