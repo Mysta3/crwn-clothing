@@ -8,9 +8,9 @@ import {
 } from "./category.action";
 
 export type CategoriesState = {
-  readonly categories?: Category[];
+  readonly categories: Category[];
   readonly isLoading: boolean;
-  readonly error?: Error | null;
+  readonly error: Error | null;
 };
 
 export const CATEGORIES_INITIAL_STATE: CategoriesState = {
@@ -21,9 +21,8 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
 
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
-  action: AnyAction
+  action = {} as AnyAction
   ): CategoriesState => {
-    
     // Matchable Patterns
     if(fetchCategoriesStart.match(action)){
       return {...state, isLoading: true };
