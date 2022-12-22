@@ -19,9 +19,14 @@ To gain a deeper understanding of the React environment when applied to a more s
 
 ### Next Steps
 Brainstorming will be continuous
+#### Functionality
 - [ ] Enhance alert messages
   - [ ] Flash success alert
   - [ ] Flash error alert
+
+#### Styling
+- [ ] Make Mobile-Friendly ( in progress )
+- [ ] Change over css to styled components
 
 
 ## Tech Scope
